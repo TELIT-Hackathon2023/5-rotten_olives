@@ -1,0 +1,9 @@
+@import '../../styles/_variables';
+
+.default-layout {
+  background-color: $primary-pink;
+
+  .delete-icon {
+    font-size: 50px;
+  }
+}

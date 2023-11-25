@@ -1,0 +1,14 @@
+@import '../styles/_global';
+
+.card {
+  p {
+    color: $bg-white;
+    background-color: $primary-gray;
+
+    &:last-of-type {
+      color: $primary-gray;
+      background-color: $bg-white;
+    }
+  }
+
+}

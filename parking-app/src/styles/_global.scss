@@ -1,0 +1,59 @@
+@import '~bootstrap/scss/bootstrap';
+
+// variables
+@import './_variables';
+
+// mixins
+@import './_mixins';
+
+// fonts
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+// global styles
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $bg-white;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-title {
+  font-size: var($main-title);
+}
+.large-title {
+  font-size: var($large-title);
+}
+.medium-title {
+  font-size: var($medium-title)
+}
+.main-desc {
+  font-size: var($main-desc);
+}
+.small-desc {
+  font-size: var($small-desc);
+}
