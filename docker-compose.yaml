@@ -50,6 +50,7 @@ services:
     build:
       context: frontend
       target: development
+    command: npm run start
     ports:
       - 3000:3000
     volumes:
