@@ -1,17 +1,10 @@
-const fs = require("fs");
-
-const readFileSync = filename => fs.readFileSync(filename).toString("utf8");
-
-// Constants
 module.exports = {
   database: {
-    host: 'db' || "localhost",
-    port: 8229,
+    host: "localhost",
+    port: 3306,
     database: 'parking_db',
     user: 'root',
-    password: 'db-btf5q'
-      ? readFileSync(process.env.DATABASE_PASSWORD)
-      : null
+    password: 'db-btf5q' || null
   },
   port: process.env.PORT || 8080
   // if you're not using docker compose for local development, this will default to 8080

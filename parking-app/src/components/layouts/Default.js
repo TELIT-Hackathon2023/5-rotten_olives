@@ -8,12 +8,13 @@ import axios from 'axios';
 
 const Default = (props) => {
   const [subpage, setSubpage] = useState(0);
+  const [parkingSpots, setParkingSpots] = useState();
 
   const handleSectorClick = (subpage) => {
     axios
-      .get("http://127.0.0.1:9229/sector?=1")
+      .get("http://127.0.0.1:3001/sector?sectorID=1")
       .then(function (response) {
-        console.log(response.data)
+        setParkingSpots(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -29,7 +30,7 @@ const Default = (props) => {
           <p>Personal ID</p>
         </div>
         <div>
-          <FaceIcon classname={'icon'}/>
+          <FaceIcon className={'icon'}/>
         </div>
       </header>
       {

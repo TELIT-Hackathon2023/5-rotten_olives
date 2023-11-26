@@ -1,35 +1,35 @@
 version: '3'
 
 services:
-  backend:
-    build:
-      args:
-        - NODE_ENV=development
-      context: backend
-      target: development
-    command: npm run start-watch
-    environment:
-      - DATABASE_DB=parking_db
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=/run/secrets/db-password
-      - DATABASE_HOST=db
-      - NODE_ENV=development
-    ports:
-      - 8080:8080
-      - 9229:9229
-      - 9230:9230
-    secrets:
-      - db-password
-    volumes:
-      - ./backend/src:/code/src:ro
-      - ./backend/package.json:/code/package.json
-      - ./backend/package-lock.json:/code/package-lock.json
-      - back-notused:/opt/app/node_modules
-    networks:
-      - public
-      - private
-    depends_on:
-      - db
+#  backend:
+#    build:
+#      args:
+#        - NODE_ENV=development
+#      context: backend
+#      target: development
+#    command: npm run start-watch
+#    environment:
+#      - DATABASE_DB=parking_db
+#      - DATABASE_USER=root
+#      - DATABASE_PASSWORD=/run/secrets/db-password
+#      - DATABASE_HOST=db
+#      - NODE_ENV=development
+#    ports:
+#      - 8080:8080
+#      - 9229:9229
+#      - 9230:9230
+#    secrets:
+#      - db-password
+#    volumes:
+#      - ./backend/src:/code/src:ro
+#      - ./backend/package.json:/code/package.json
+#      - ./backend/package-lock.json:/code/package-lock.json
+#      - back-notused:/opt/app/node_modules
+#    networks:
+#      - public
+#      - private
+#    depends_on:
+#      - db
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
@@ -42,6 +42,8 @@ services:
     volumes:
       - ./db/migrations:/docker-entrypoint-initdb.d
       - db-data:/var/lib/mysql
+    ports:
+      - 3306:3306
     networks:
       - private
     environment:
