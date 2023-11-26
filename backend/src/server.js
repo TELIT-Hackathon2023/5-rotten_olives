@@ -15,7 +15,13 @@ const morgan = require("morgan");
 const database = require("./database");
 
 // Appi
+const cors = require('cors');
 const app = express();
+
+app.use(cors({
+  origin: 'http://127.0.0.1:3000', // Replace with your allowed origin
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11) choke on 204
+}));
 
 app.use(morgan("common"));
 

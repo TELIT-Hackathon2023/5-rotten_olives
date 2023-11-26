@@ -17,14 +17,14 @@ const Sectors = ({ onSectorClick }) => {
             <div>20 free</div>
           </div>
         </div>
-        <div className={'d-flex flex-column align-items-start sector sector-40'}>
+        <div onClick={handleButtonClick} className={'d-flex flex-column align-items-start sector sector-40'}>
           <div className={'sector-number'}>Section #3</div>
           <div className={'d-flex flex-row w-100 justify-content-between sector-details'}>
             <div>40 occupied</div>
             <div>20 free</div>
           </div>
         </div>
-        <div className={'d-flex flex-column align-items-start sector sector-60'}>
+        <div onClick={handleButtonClick} className={'d-flex flex-column align-items-start sector sector-60'}>
           <div className={'sector-number'}>Section #4</div>
           <div className={'d-flex flex-row w-100 justify-content-between sector-details'}>
             <div>40 occupied</div>

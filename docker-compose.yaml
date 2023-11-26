@@ -15,7 +15,7 @@ services:
       - DATABASE_HOST=db
       - NODE_ENV=development
     ports:
-      - 80:80
+      - 8080:8080
       - 9229:9229
       - 9230:9230
     secrets:
@@ -47,20 +47,7 @@ services:
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
-  frontend:
-    build:
-      context: frontend
-      target: development
-    command: npm run start
-    ports:
-      - 3000:3000
-    volumes:
-      - ./frontend/src:/code/src
-      - /code/node_modules
-    networks:
-      - public
-    depends_on:
-      - backend
+ 
 networks:
   public:
   private:
