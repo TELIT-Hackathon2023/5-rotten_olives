@@ -182,6 +182,36 @@ app.post('/new/reservation', (req, res, next) => {
     .catch(next);
 });
 
+app.post('/add/car', (req, res, next) => {
+  const { employeeID, license } = req.body;
+
+  database
+    .select('*')
+    .from('employee')
+    .where({ employee_id: employeeID })
+    .then((employee) => {
+
+    })
+    .catch(next);
+  const jsonData = JSON.parse(employee[0].car_licenses);
+  const numberOfRecords = jsonData.entries.length;
+  const newKey = 'car' + numberOfRecords;
+  const newEntry = {
+    [newKey]: [license],
+  };
+  jsonData.entries.push(newEntry);
+
+  const updatedJson = JSON.stringify(jsonData);
+
+  database('employee')
+    .where({ employee_id: employeeID })
+    .update('car_licenses', updatedJson)
+    .then(() => {
+      res.status(201).json({ message: 'Car license added successfully' });
+    })
+    .catch(next);
+});
+
 
 
 
