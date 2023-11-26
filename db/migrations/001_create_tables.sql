@@ -27,8 +27,6 @@ CREATE TABLE spot
   spot_type INT NOT NULL,
   spot_state INT NOT NULL,
   spot_number INT NOT NULL,
-  lon FLOAT NOT NULL,
-  lat FLOAT NOT NULL,
   sector_id INT NOT NULL,
   PRIMARY KEY (spot_id),
   FOREIGN KEY (sector_id) REFERENCES sector(sector_id)
@@ -37,12 +35,12 @@ CREATE TABLE spot
 CREATE TABLE reservation
 (
   reservation_id INT NOT NULL,
-  start_time DATE NOT NULL,
-  end_time DATE NOT NULL,
-  created DATE NOT NULL,
+  start_time DATETIME NOT NULL,
+  end_time DATETIME NOT NULL,
+  created DATETIME NOT NULL,
   employee_id INT NOT NULL,
   spot_id INT NOT NULL,
-  vehicle_licesne VARCHAR(16) NOT NULL,
+  vehicle_license VARCHAR(16) NOT NULL,
   PRIMARY KEY (reservation_id),
   FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
   FOREIGN KEY (spot_id) REFERENCES spot(spot_id)
