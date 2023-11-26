@@ -6,14 +6,14 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #FFFFFF; /* Nastaví bielu farbu pozadia */
+  background-color: #FFFFFF; 
 }
 
 .intro-layout {
-  height: 100vh; /* Nastaví výšku na 100% výšky obrazovky */
+  height: 100vh; 
   display: flex;
-  flex-direction: column; /* Zmení orientáciu flexboxu na stĺpcovú */
-  justify-content: flex-start; /* Zarovnanie obsahu na vrch */
+  flex-direction: column;
+  justify-content: flex-start; 
   align-items: center;
   background-color: #FFFFFF;
 }
@@ -22,8 +22,8 @@ img {
   width: 100%;
   height: auto;
   display: block;
-  margin-top: 0; /* Ostráni horný margin, ak bol nastavený predtým */
-  margin-bottom: auto; /* Zarovná obrázok na vrchol stĺpca */
+  margin-top: 0;
+  margin-bottom: auto; 
 }
 
 .buttons-container {
@@ -34,17 +34,26 @@ img {
   margin-bottom: 5rem;
 }
 
+.buttons-container-home {
+  margin-top: 9rem;
+  width: 100%;
+}
+
 .login-button {
   background-color: $primary-pink;
   color: white;
   padding: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   border: none;
   cursor: pointer;
   width: 100%;
   border-radius: 0.5rem;
   font-weight: 700;
 
+}
+
+a{
+  width: 100%;
 }
 
 .register-button {
@@ -56,11 +65,11 @@ img {
   width: 100%;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-weight: 700;
 
 }
 
 .register-button.black-text {
-  color: black; /* Nastaví čiernu farbu pre text tlačidla "Register" s touto triedou */
+  color: black;
 }

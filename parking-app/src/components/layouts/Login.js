@@ -12,15 +12,17 @@ const Login = (props) => {
       </div>
       <div className="user-container">
         <label htmlFor="username">User:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username" />
+        <input type="text" id="username" name="username" placeholder="Enter Your Username" />
       </div>
       <div className="password-container">
         <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" />
+        <input type="password" id="password" name="password" placeholder="Enter Your Password" />
       </div>
       <div className="buttons-container">
         <button className="account-button">Login</button>
+        <a href="http://localhost:3000/register">New here? Create account</a>
       </div>
+
     </div>
   );
 }
