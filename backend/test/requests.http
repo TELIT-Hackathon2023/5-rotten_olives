@@ -1,0 +1,7 @@
+// A basic request
+GET http://localhost:9229/reservation/1
+
+
+
+// YEP
+//GET http://localhost:9229/healtz

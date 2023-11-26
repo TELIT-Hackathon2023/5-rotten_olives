@@ -4,12 +4,12 @@ services:
   backend:
     build:
       args:
-      - NODE_ENV=development
+        - NODE_ENV=development
       context: backend
       target: development
     command: npm run start-watch
     environment:
-      - DATABASE_DB=example
+      - DATABASE_DB=parking_db
       - DATABASE_USER=root
       - DATABASE_PASSWORD=/run/secrets/db-password
       - DATABASE_HOST=db
@@ -40,6 +40,7 @@ services:
     secrets:
       - db-password
     volumes:
+      - ./db/migrations:/docker-entrypoint-initdb.d
       - db-data:/var/lib/mysql
     networks:
       - private

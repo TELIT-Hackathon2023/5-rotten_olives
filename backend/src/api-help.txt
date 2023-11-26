@@ -1,0 +1,14 @@
+/getusers           - vrati vsetkych zamestnancov
+/users              - vrati jedneho zamestnanca
+                        - parameters: employeeID
+/reservation/all    - vrati vsetky rezervacie zamestnanca  
+                        - parameters: employeeID
+/reservation        - vrati jednu rezervaciu
+                        - parameters: reservationID
+/spot/reservation   - vrati rezervacie daneho miesta
+                        - parameters: spotID, startTime, endTime
+/sector             - vrati spoty v sektore
+                        - parameters: sectorID
+
+/new/reservation    - vytvori novu rezervaciu a posle ju na DB
+                        - parameters: startTime, endTime, employeeID, spotID, license
