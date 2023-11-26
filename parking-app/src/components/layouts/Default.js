@@ -1,42 +1,35 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
-import DeleteIcon from '@mui/icons-material/Delete';
-import Card from "../Card";
 import './Default.scss';
+import FaceIcon from '@mui/icons-material/Face';
+import Sectors from "../Sectors";
+import ParkingLots from "../ParkingLots";
 
 const Default = (props) => {
-  const [aaa, setAaa] = useState(props.aaa);
+  const [subpage, setSubpage] = useState(0);
+
+  const handleSectorClick = (subpage) => {
+    setSubpage(subpage);
+  };
 
   return (
     <div className={'default-layout'}>
       <header>
-        Header
-        <nav>
-          <h2 className="text-xl font-bold">
-            asdasd
-          </h2>
-        </nav>
-      </header>
-      <main>
-        <div>
-          <h2 className="text-4xl font-bold text-center">Pick your game</h2>
-          <div>
-            {aaa}
-            <DeleteIcon className={'delete-icon'}/>
-              {aaa === 'products' &&
-                <NavLink to={'/product/1'}>Detail</NavLink>
-              }
-              {aaa === 'product' &&
-                <div>
-                  <Card bbb={"cardicek"}/>
-                </div>
-              }
-          </div>
+        <div className={'d-flex flex-column align-items-start user'}>
+          <div>Patrik</div>
+          <p>Personal ID</p>
         </div>
-      </main>
-      <footer>
-        Footer
-      </footer>
+        <div>
+          <FaceIcon classname={'icon'}/>
+        </div>
+      </header>
+      {
+        subpage === 0 &&
+        <Sectors onSectorClick={handleSectorClick} />
+      }
+      {
+        subpage === 1 &&
+        <ParkingLots />
+      }
     </div>
   );
 }

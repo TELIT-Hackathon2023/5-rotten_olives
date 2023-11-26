@@ -1,9 +1,374 @@
 @import '../../styles/_variables';
 
 .default-layout {
-  background-color: $primary-pink;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
-  .delete-icon {
-    font-size: 50px;
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    color: white;
+    background-color: $primary-pink;
+    padding: 1rem;
+    font-size: $medium-title;
+    font-weight: bolder;
+
+    .user {
+      margin-right: 0.5rem;
+
+      p {
+        font-size: $small-desc;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
+
+    .icon {
+      font-size: 45px;
+      fill: $bg-white;
+    }
   }
+
+  main {
+    display: block;
+    width: 100%;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-x: scroll;
+    overflow-y: scroll;
+    border: 0;
+    background-color: $primary-gray;
+
+
+    .road {
+      height: 3.5rem;
+      width: 7rem;
+      margin: 0.25rem;
+      border-left: 1px solid $primary-black;
+      border-right: 1px solid $primary-black;
+      border-bottom: 1px solid $primary-black;
+      height: 19.5rem;
+
+      .icon {
+        height: 40px;
+        fill: $secondary-black;
+        font-size: 35px;
+      }
+    }
+
+    .parking-lot {
+      height: 3.5rem;
+      width: 6.5rem;
+      margin: 0.25rem;
+      border-radius: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: $primary-black;
+      padding: 0.25rem;
+
+      &.free {
+        border: 2px solid rgba(31, 177, 46, 0);
+        background-color: rgba(31, 177, 46, 0.5);
+      }
+
+      &.occupied {
+        border: 2px solid rgba(39, 139, 231, 0);
+        background-color: rgba(39, 139, 231, 0.5);
+      }
+
+      &.reserved {
+        border: 2px solid rgba(218, 21, 21, 0);
+        background-color: rgba(218, 21, 21, 0.5);
+      }
+
+      .state {
+        font-size: $main-desc;
+        font-weight: bold;
+      }
+
+      .id {
+        font-size: $main-desc;
+        font-weight: normal;
+      }
+
+      .number {
+        font-size: $small-desc;
+        font-weight: normal;
+      }
+
+      &:hover {
+        box-shadow: 0 0 8px 0 #0084FF;
+        border: 2px solid rgba(39, 139, 231, 1);
+      }
+    }
+
+    .sector {
+      border-radius: 0.25rem;
+      background-color: $primary-pink;
+      color: $bg-white;
+      margin-right: 5%;
+      padding: 0.25rem 0.5rem;
+
+      &:hover {
+        background-color: $secondary-pink;
+      }
+
+      &.sector-70 {
+        width: 70%;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      &.sector-60 {
+        width: 60%;
+        margin-bottom: 2rem;
+      }
+
+      &.sector-40 {
+        width: 40%;
+        margin-bottom: 7rem;
+      }
+    }
+
+    .sector-number {
+      font-weight: bold;
+      font-size: $medium-title;
+    }
+
+    .sector-details {
+      font-weight: normal;
+      font-size: $main-desc;
+    }
+  }
+
+  footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $primary-gray;
+    box-shadow: 0 -8px 12px -4px #CCCCCC;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+
+    .banner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: $primary-gray;
+      width: 100%;
+
+      .banner-id {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: $large-desc;
+
+        .circle {
+          border-radius: 0.7rem;
+          margin-right: 0.5rem;
+          width: 1rem;
+          height: 1rem;
+
+          &.free {
+            box-shadow: 0 0 8px 0 $green;
+            background-color: $green;
+          }
+
+          &.occupied {
+            box-shadow: 0 0 8px 0 $blue;
+            background-color: $blue;
+          }
+
+          &.reserved {
+            box-shadow: 0 0 8px 0 $red;
+            background-color: $red;
+          }
+        }
+      }
+
+      .banner-info {
+        font-size: $large-desc;
+        padding: 0 5px;
+        border-radius: 0.25rem;
+
+        &.-error {
+          background-color: red;
+          color: $bg-white;
+        }
+      }
+    }
+
+    section {
+      display: block;
+      background-color: $bg-white;
+      padding: 1.5rem 3rem;
+      height: max-content;
+
+      .box-shadow {
+        box-shadow: 0 -8px 12px -4px #CCCCCC;
+      }
+
+      .day-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: fit-content;
+        margin: 1.5rem 0;
+
+        .day {
+          display: block;
+          height: 5rem;
+          width: 6.2rem;
+          border-radius: 0.5rem;
+          background-color: $primary-gray;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          div {
+            font-size: $main-desc;
+            font-weight: bold;
+          }
+
+          p {
+            font-size: $small-desc;
+            margin: 0;
+          }
+
+          &:hover {
+            background-color: $primary-pink;
+            box-shadow: 0 0 4px 0 $primary-pink;
+          }
+        }
+      }
+
+      .duration-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 1.5rem 0;
+
+        .duration-item {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          width: 45%;
+
+          p {
+            margin: 0;
+            font-size: $small-desc;
+            font-weight: bold;
+          }
+
+          .input {
+            display: flex;
+            flex-direction: row;
+
+            .left-addon {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: $primary-gray;
+              border-radius: 0.25rem 0 0 0.25rem;
+              border: 1px solid $primary-black;
+              border-right: 0.5px;
+              width: 2rem;
+              font-weight: lighter;
+
+              .icon {
+                height: 16px;
+                display: block;
+                fill: $secondary-black;
+              }
+            }
+            .text-field {
+              padding: 0.3rem;
+              border: 1px solid $primary-black;
+              width: 5rem;
+              text-align: center;
+            }
+            .right-addon {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: $primary-gray;
+              border-radius: 0 0.25rem 0.25rem 0;
+              border: 1px solid $primary-black;
+              border-left: 0.5px;
+              width: 2rem;
+
+              .icon {
+                height: 16px;
+                display: block;
+                fill: $secondary-black;
+              }
+            }
+          }
+        }
+      }
+      .licence-plate-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        p {
+          margin: 0;
+          font-size: $small-desc;
+          font-weight: bold;
+        }
+
+        .input {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+
+          .text-field {
+            padding: 0.3rem;
+            border: 1px solid $primary-black;
+            border-radius: 0.25rem;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .reserve-wrapper {
+    margin: 1.5rem 0;
+  }
+
+  .reserve-info {
+    font-size: $main-desc;
+    font-weight: bold;
+  }
+
+  .primary-button {
+    background-color: $primary-pink;
+    color: $bg-white;
+    border: 0;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in;
+    padding: 0.8rem 2rem;
+    width: 100%;
+    font-size: $large-desc;
+
+    &:active {
+      background-color: $secondary-pink;
+    }
+
+    &:disabled {
+      background-color: $primary-gray;
+      color: $primary-black;
+    }
+  }
+
 }
