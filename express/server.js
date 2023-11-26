@@ -136,6 +136,7 @@ app.get('/sector', (req, res, next) => {
   database
     .select('*')
     .from('spot')
+    .leftJoin('reservation', 'reservation.spot_id', '=', 'spot.spot_id')
     .where({ sector_id: sectorID })
     .then((spot) => {
       if (spot.length === 0) {

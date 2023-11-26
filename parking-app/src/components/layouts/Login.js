@@ -1,5 +1,6 @@
 import React from 'react';
 import './Account.scss';
+import { NavLink } from 'react-router-dom';
 
 const Login = (props) => {
   return (
@@ -19,7 +20,9 @@ const Login = (props) => {
         <input type="password" id="password" name="password" placeholder="Enter Your Password" />
       </div>
       <div className="buttons-container">
-        <button className="account-button">Login</button>
+        <NavLink to={'/reserve'}>
+          <button className="account-button">Login</button>
+        </NavLink>
         <a href="http://localhost:3000/register">New here? Create account</a>
       </div>
 

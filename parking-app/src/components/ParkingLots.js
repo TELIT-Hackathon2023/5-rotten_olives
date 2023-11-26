@@ -2,68 +2,41 @@ import React from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+// import { parseISO, format } from 'date-fns';
 
-const ParkingLots = () => {
+const ParkingLots = (props) => {
+
+  function render_column(from, to) {
+    return props.parkingSpots.map( (parkingSpot, index) => {
+      if (from <= index && index <= to) {
+        return (
+          <div className={`parking-lot ${parkingSpot.spot_state === 0 && 'free'} ${parkingSpot.spot_state === 1 && 'reserved'} ${parkingSpot.spot_state === 2 && 'occupied'}`}>
+            <div className={'d-flex flex-row justify-content-between'}>
+              {parkingSpot.spot_state === 0 &&
+                <div className={'state'}>Free</div>}
+              {parkingSpot.spot_state === 1 &&
+                <div className={'state'}>Reserved</div>}
+              {parkingSpot.spot_state === 2 &&
+                <div className={'state'}>Occupied</div>}
+              <div className={'id'}>#{parkingSpot.spot_number}</div>
+            </div>
+            <div className={'d-flex flex-row align-items-start number'}>
+              <div>
+                {parkingSpot.vehicle_license}
+              </div>
+            </div>
+          </div>
+        )
+      }
+    });
+  }
+
   return (
     <div>
       <main>
         <div className={'d-flex flex-row'}>
           <div className={'d-flex flex-column'}>
-            <div className={'parking-lot free'}>
-              <div className={'d-flex flex-row justify-content-between'}>
-                <div className={'state'}>Occupied</div>
-                <div className={'id'}>#34</div>
-              </div>
-              <div className={'d-flex flex-row align-items-start number'}>
-                <div>
-                  KE-333BB
-                </div>
-              </div>
-            </div>
-            <div className={'parking-lot free'}>
-              <div className={'d-flex flex-row justify-content-between'}>
-                <div className={'state'}>Occupied</div>
-                <div className={'id'}>#34</div>
-              </div>
-              <div className={'d-flex flex-row align-items-start number'}>
-                <div>
-                  KE-333BB
-                </div>
-              </div>
-            </div>
-            <div className={'parking-lot free'}>
-              <div className={'d-flex flex-row justify-content-between'}>
-                <div className={'state'}>Occupied</div>
-                <div className={'id'}>#34</div>
-              </div>
-              <div className={'d-flex flex-row align-items-start number'}>
-                <div>
-                  KE-333BB
-                </div>
-              </div>
-            </div>
-            <div className={'parking-lot free'}>
-              <div className={'d-flex flex-row justify-content-between'}>
-                <div className={'state'}>Occupied</div>
-                <div className={'id'}>#34</div>
-              </div>
-              <div className={'d-flex flex-row align-items-start number'}>
-                <div>
-                  KE-333BB
-                </div>
-              </div>
-            </div>
-            <div className={'parking-lot free'}>
-              <div className={'d-flex flex-row justify-content-between'}>
-                <div className={'state'}>Occupied</div>
-                <div className={'id'}>#34</div>
-              </div>
-              <div className={'d-flex flex-row align-items-start number'}>
-                <div>
-                  KE-333BB
-                </div>
-              </div>
-            </div>
+            {render_column(0, 4)}
           </div>
           <div className={'d-flex flex-column'}>
             <div className={'road'}>
@@ -71,18 +44,10 @@ const ParkingLots = () => {
             </div>
           </div>
           <div className={'d-flex flex-column'}>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
+            {render_column(5, 9)}
           </div>
           <div className={'d-flex flex-column'}>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
-            <div className={'parking-lot free'}></div>
+            {render_column(10, 14)}
           </div>
           <div>
             <div></div>
