@@ -146,7 +146,7 @@ app.get('/sector', (req, res, next) => {
 });
 
 app.post('/new/reservation', (req, res, next) => {
-  const { startTime, endTime, created, employeeID, spotID, license } = req.body;
+  const { startTime, endTime, employeeID, spotID, license } = req.body;
 
   database
     .count('* as count')
@@ -157,6 +157,7 @@ app.post('/new/reservation', (req, res, next) => {
     .catch(next);
 
   count += 1;
+  const currentTimestamp = new Date().toISOString();
 
   // Insert data into the 'reservation' table
   database('reservation')
@@ -164,7 +165,7 @@ app.post('/new/reservation', (req, res, next) => {
       reservation_id: count,
       start_time: startTime,
       end_time: endTime,
-      created: created,
+      created: currentTimestamp,
       employee_id: employeeID,
       spot_id: spotID,
       vehicle_license: license,
