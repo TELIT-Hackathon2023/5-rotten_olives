@@ -1,3 +1,66 @@
+// Intro.scss
+
+@import '../../styles/_variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #FFFFFF; /* Nastaví bielu farbu pozadia */
+}
+
 .intro-layout {
-  // todo
+  height: 100vh; /* Nastaví výšku na 100% výšky obrazovky */
+  display: flex;
+  flex-direction: column; /* Zmení orientáciu flexboxu na stĺpcovú */
+  justify-content: flex-start; /* Zarovnanie obsahu na vrch */
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0; /* Ostráni horný margin, ak bol nastavený predtým */
+  margin-bottom: auto; /* Zarovná obrázok na vrchol stĺpca */
+}
+
+.buttons-container {
+  width: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.login-button {
+  background-color: $primary-pink;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: 700;
+
+}
+
+.register-button {
+  background-color: white;
+  color: $primary-pink;
+  padding: 1rem;
+  border: 1px solid $primary-pink;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+
+}
+
+.register-button.black-text {
+  color: black; /* Nastaví čiernu farbu pre text tlačidla "Register" s touto triedou */
 }
