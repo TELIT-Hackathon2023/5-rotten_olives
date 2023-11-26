@@ -1,0 +1,83 @@
+@import '../../styles/_variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #FFFFFF; 
+}
+
+.account-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem; 
+}
+
+.user-container,
+.password-container,
+.key-container {
+  width: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+label {
+  font-size: 0.8rem; 
+  color: #555; 
+  margin-top: 0.5rem; 
+  margin-bottom: 0.2rem; 
+  font-weight: bold; 
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem; 
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+}
+
+.buttons-container {
+  width: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: $primary-pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.account-button {
+  background-color: $primary-pink;
+  color: white;
+  padding: 1rem;
+  margin-top: 0.8rem; 
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: 700;
+}
